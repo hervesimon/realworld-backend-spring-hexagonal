@@ -17,8 +17,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import io.realworld.backend.domain.aggregate.user.User;
-import io.realworld.backend.domain.service.JwtService;
+import io.realworld.backend.app.service.JwtService;
+import io.realworld.backend.domain.model.user.User;
 
 @Component
 public class JwtTokenFilter extends OncePerRequestFilter {

@@ -1,16 +1,15 @@
 package io.realworld.backend.app.service.impl;
 
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import io.realworld.backend.domain.aggregate.user.User;
-import io.realworld.backend.domain.aggregate.user.UserRepository;
-import io.realworld.backend.domain.service.AuthenticationService;
+import io.realworld.backend.app.service.AuthenticationService;
+import io.realworld.backend.domain.model.user.User;
+import io.realworld.backend.domain.repository.UserRepository;
 
 @Service
 public class SpringAuthenticationService implements AuthenticationService {

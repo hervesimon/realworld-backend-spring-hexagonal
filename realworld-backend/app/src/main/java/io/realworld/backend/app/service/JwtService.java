@@ -1,8 +1,7 @@
 package io.realworld.backend.app.service;
 
+import io.realworld.backend.domain.model.user.User;
 import java.util.Optional;
-
-import io.realworld.backend.domain.aggregate.user.User;
 
 public interface JwtService {
   /** Generates JWT token for a given user. */

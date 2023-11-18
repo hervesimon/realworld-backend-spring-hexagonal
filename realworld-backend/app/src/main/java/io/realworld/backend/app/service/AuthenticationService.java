@@ -2,7 +2,7 @@ package io.realworld.backend.app.service;
 
 import java.util.Optional;
 
-import io.realworld.backend.domain.aggregate.user.User;
+import io.realworld.backend.domain.model.user.User;
 
 public interface AuthenticationService {
   /** Returns current authenticated user. */

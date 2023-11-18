@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import io.realworld.backend.app.exception.UserNotFoundException;
-import io.realworld.backend.domain.aggregate.user.User;
-import io.realworld.backend.domain.service.AuthenticationService;
+import io.realworld.backend.app.service.AuthenticationService;
+import io.realworld.backend.domain.model.user.User;
 
 public abstract class BaseService {
   public <T> ResponseEntity<T> ok(T body) {

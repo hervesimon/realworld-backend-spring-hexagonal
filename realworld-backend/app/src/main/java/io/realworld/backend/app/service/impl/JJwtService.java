@@ -10,30 +10,23 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.realworld.backend.app.service.JwtService;
-import io.realworld.backend.domain.aggregate.user.User;
-import io.realworld.backend.domain.aggregate.user.UserRepository;
+import io.realworld.backend.domain.model.user.User;
+import io.realworld.backend.domain.service.UserService;
 
 @Component
 public class JJwtService implements JwtService {
   private final String secret;
   private final int sessionTime;
-  private final UserRepository userRepository;
+  private final UserService userService;
 
-  /**
-   * Creates DefaultJwtService instance.
-   *
-   * @param secret jwt secret
-   * @param sessionTime jwt session time in seconds
-   * @param userRepository user repository
-   */
   @Autowired
   public JJwtService(
       @Value("${jwt.secret}") String secret,
       @Value("${jwt.sessionTime}") int sessionTime,
-      UserRepository userRepository) {
+          UserService userService) {
     this.secret = secret;
     this.sessionTime = sessionTime;
-    this.userRepository = userRepository;
+    this.userService = userService;
   }
 
   /** {@inheritDoc} */
@@ -53,7 +46,7 @@ public class JJwtService implements JwtService {
       final var subject =
           Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
       final var userId = Long.parseLong(subject);
-      return userRepository.findById(userId);
+      return userService.findById(userId);
     } catch (Exception e) {
       return Optional.empty();
     }
