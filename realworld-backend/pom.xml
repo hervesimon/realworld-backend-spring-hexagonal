@@ -17,7 +17,7 @@
     </parent>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>21</java.version>
         <project-base-package>io.realworld.backend</project-base-package>
         <spring.boot.mainclass>io.realworld.backend.BackendApplication</spring.boot.mainclass>
         <!-- Needed for animal-sniffer-maven-plugin version 1.19 (version 1.20 is fixed). -->
@@ -37,6 +37,8 @@
         <feign-okhttp.version>12.1</feign-okhttp.version>
         <mockito-junit-jupiter.version>5.0.0</mockito-junit-jupiter.version>
         <assertj.version>3.24.1</assertj.version>
+        <mapstruct.version>1.5.3.Final</mapstruct.version>
+        <jmustache.version>1.15</jmustache.version>
     </properties>
 
     <dependencyManagement>
@@ -158,6 +160,20 @@
                 <scope>test</scope>
             </dependency>
 
+            <!-- mapstruct -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <!-- Spring boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <type>pom</type>
+                <version>${spring-version}</version>
+                <scope>import</scope>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -222,6 +238,23 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.mapstruct</groupId>
+                                <artifactId>mapstruct-processor</artifactId>
+                                <version>${mapstruct.version}</version>
+                            </path>
+                            <!-- other annotation processors -->
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>

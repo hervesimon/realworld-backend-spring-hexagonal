@@ -4,24 +4,10 @@ jwt:
 server:
     port: 8080
 spring:
-    datasource:
-        driverClassName: org.h2.Driver
-        password: password
-        url: jdbc:h2:file:/Users/hmuludiki/git/realworld-backend-spring-ddd/data/demo
-        username: sa
-    h2:
-        console:
-            enabled: true
     jackson:
         date-format: io.realworld.backend.rest.swagger.RFC3339DateFormat
         serialization:
             WRITE_DATES_AS_TIMESTAMPS: false
-    jpa:
-        database-platform: org.hibernate.dialect.H2Dialect
-        defer-datasource-initialization: true
-        hibernate:
-            ddl-auto: update
-        show-sql: true
 springfox:
     documentation:
         swagger:

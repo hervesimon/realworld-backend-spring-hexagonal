@@ -98,12 +98,12 @@
                                 <sourceFolder>src/gen/java/main</sourceFolder>
                                 <delegatePattern>true</delegatePattern>
                                 <apiPackage>${project-base-package}.rest.api</apiPackage>
-                                <modelPackage>${project-base-package}.rest.api</modelPackage>
+                                <modelPackage>${project-base-package}.rest.api.model</modelPackage>
                                 <configPackage>${project-base-package}.rest.swagger</configPackage>
                                 <invokerPackage>${project-base-package}.rest.swagger</invokerPackage>
                             </configOptions>
                             <additionalProperties>
-                                <additionalProperty>modelNameSuffix=Data</additionalProperty>
+                                <additionalProperty>modelNameSuffix=Json</additionalProperty>
                             </additionalProperties>
                         </configuration>
                     </execution>
